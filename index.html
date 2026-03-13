@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>999 Automotive | Premium Auto Detailing in Calicut</title>
+    <!-- Fonts -->
+    <link href="css2.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Color Palette */
+            --bg-dark: #0f0f0f;
+            --bg-surface: #1a1a1a;
+            --accent: #ff6a00;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 { font-weight: 700; }
+        h2 { 
+            font-size: 2.5rem; 
+            text-align: center; 
+            margin-bottom: 3rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+        }
+        h2 span { color: var(--accent); }
+        p { color: var(--text-muted); }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .btn-primary { 
+            background-color: var(--accent); 
+            color: #fff; 
+        }
+        .btn-primary:hover { 
+            background-color: transparent; 
+            border-color: var(--accent); 
+            color: var(--accent); 
+        }
+        .btn-outline { 
+            background-color: transparent; 
+            border-color: var(--text-main); 
+            color: var(--text-main); 
+        }
+        .btn-outline:hover { 
+            background-color: var(--text-main); 
+            color: var(--bg-dark); 
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0; 
+            width: 100%;
+            background-color: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+        header.scrolled {
+            padding: 15px 5%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+        .logo { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            color: #fff; 
+            text-decoration: none; 
+            letter-spacing: 2px; 
+        }
+        .logo span { color: var(--accent); }
+        
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            text-transform: uppercase; 
+            transition: var(--transition); 
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .menu-toggle { 
+            display: none; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            color: #fff; 
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(15, 15, 15, 0.7), rgba(15, 15, 15, 0.95));
+            z-index: -1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hero h1 { 
+            font-size: 4.5rem; 
+            margin-bottom: 10px; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+        }
+        .hero h1 span { color: var(--accent); }
+        .hero h3 { 
+            font-size: 1.8rem; 
+            font-weight: 400; 
+            margin-bottom: 15px; 
+            color: #eee; 
+        }
+        .hero p { 
+            font-size: 1.1rem; 
+            max-width: 650px; 
+            margin-bottom: 35px; 
+            color: #aaa; 
+        }
+        .hero-btns { 
+            display: flex; 
+            gap: 20px; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+
+        /* Sections General */
+        section { padding: 100px 5%; }
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background-color: var(--bg-surface);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.02);
+            position: relative;
+            overflow: hidden;
+        }
+        .about-content::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; width: 4px; height: 100%;
+            background-color: var(--accent);
+        }
+        .about-text { flex: 1; }
+        .about-text p { margin-bottom: 20px; font-size: 1.1rem; }
+        .founder-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .founder-info strong { color: var(--text-main); }
+        .founder-info a { 
+            color: var(--accent); 
+            text-decoration: none; 
+            font-weight: 500; 
+            transition: var(--transition); 
+        }
+        .founder-info a:hover { color: #fff; }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background-color: var(--bg-surface);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.02);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 3px;
+            background-color: var(--accent);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.4s ease;
+        }
+        .service-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6); 
+            background-color: #202020;
+        }
+        .service-card:hover::after { transform: scaleX(1); }
+        
+        .service-icon { 
+            font-size: 3rem; 
+            color: var(--accent); 
+            margin-bottom: 20px; 
+            transition: var(--transition);
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+        .service-card h3 { 
+            font-size: 1.4rem; 
+            margin-bottom: 15px; 
+            color: #fff; 
+        }
+
+        /* Location Section */
+        .location-container {
+            display: flex;
+            gap: 0;
+            background-color: var(--bg-surface);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .location-text { 
+            padding: 50px; 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+        }
+        .location-text h3 { 
+            font-size: 1.8rem; 
+            margin-bottom: 25px; 
+            color: var(--accent);
+        }
+        .location-text p { 
+            font-size: 1.1rem; 
+            line-height: 1.8; 
+            margin-bottom: 10px; 
+        }
+        .map-container { 
+            flex: 1; 
+            min-height: 400px; 
+            position: relative;
+        }
+        .map-container iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            filter: grayscale(100%) invert(90%) contrast(80%);
+            position: absolute;
+            left: 0;
+            top: 0; 
+        }
+
+        /* Contact Section */
+        /* Contact Section Structure */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+            text-align: left;
+        }
+        .contact-card {
+            background-color: var(--bg-surface);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6); 
+        }
+        .contact-card h3 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 15px;
+        }
+        .contact-item-struct {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .contact-item-struct i {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-top: 3px;
+        }
+        .contact-item-struct div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .contact-item-struct p {
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-main);
+            font-size: 1.05rem;
+        }
+        .contact-item-struct a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: var(--transition);
+        }
+        .contact-item-struct a:hover {
+            color: var(--accent);
+        }
+        .btn-contact {
+            margin-top: auto;
+            justify-content: center;
+            width: 100%;
+            padding: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050505;
+            text-align: center;
+            padding: 50px 20px 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        footer .logo { font-size: 2rem; display: inline-block; margin-bottom: 10px; }
+        footer p { font-size: 1rem; margin-bottom: 25px; }
+        
+        .social-links { 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            margin-bottom: 30px;
+        }
+        .social-links a { 
+            color: var(--text-muted); 
+            font-size: 1.5rem; 
+            transition: var(--transition); 
+        }
+        .social-links a:hover { color: var(--accent); transform: translateY(-3px); }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.2rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .whatsapp-float:hover { 
+            transform: scale(1.1) rotate(5deg); 
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Dropdown for Call Now */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--bg-surface);
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+            z-index: 10;
+            border-radius: 8px;
+            overflow: hidden;
+            top: 110%; /* below the button */
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .dropdown-content a {
+            color: var(--text-main);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        .dropdown-content a:hover {
+            background-color: #2a2a2a;
+            color: var(--accent);
+        }
+        .dropdown-content a i {
+            margin-right: 8px;
+            color: var(--accent);
+            width: 20px;
+            text-align: center;
+        }
+        .dropdown.active .dropdown-content {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -10px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+
+        /* Instagram Section */
+        .instagram-section {
+            padding-top: 50px;
+        }
+        .reel-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .reel-wrapper {
+            width: 300px;
+            height: 533px; /* ~16:9 vertical ratio for reels */
+            background-color: #050505;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        .reel-wrapper i.fa-instagram {
+            font-size: 3.5rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+        .reel-wrapper:hover i.fa-instagram {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+        .reel-wrapper p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        /* Fixes for when actual instagram embed is pasted */
+        .reel-wrapper iframe, .reel-wrapper .instagram-media {
+            width: 100% !important;
+            height: 100% !important;
+            min-width: unset !important;
+            max-width: unset !important;
+            margin: 0 !important;
+            border-radius: 12px;
+        }
+
+        /* Animations */
+        .fade-in { 
+            opacity: 0; 
+            transform: translateY(40px); 
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+        }
+        .fade-in.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .location-container, .about-content { flex-direction: column !important; }
+            .location-text { text-align: left !important; }
+            .map-container { min-height: 350px; width: 100%; }
+            .hero h1 { font-size: 3.5rem; }
+            .services-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links {
+                position: absolute;
+                top: 100%; 
+                left: 0; 
+                width: 100%;
+                background-color: rgba(15, 15, 15, 0.98);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease-in-out;
+            }
+            .nav-links.active { 
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); 
+            }
+            .hero h1 { font-size: 2.8rem; }
+            .hero h3 { font-size: 1.2rem; }
+            section { padding: 70px 5%; }
+            .contact-info { gap: 30px; flex-direction: column; }
+        }
+
+        /* Page Loader */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-dark);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 106, 0, 0.2);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header id="header">
+        <a href="#home" class="logo">
+            <!-- <img src="logo.png" alt="Logo"> -->
+            999 <span>AUTOMOTIVE</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#instagram">Instagram</a>
+            <a href="#location">Location</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <video autoplay loop muted playsinline class="hero-video">
+            <!-- Replace 'background-video.mp4' with the actual filename of your video -->
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1 class="fade-in">999 <span>Automotive</span></h1>
+            <h3 class="fade-in" style="transition-delay: 0.1s;">Premium Auto Detailing Services in Calicut & Bengaluru</h3>
+            <p class="fade-in" style="transition-delay: 0.2s;">Professional detailing, ceramic coating, alloy wheels & body kits.</p>
+            <div class="hero-btns fade-in" style="transition-delay: 0.3s;">
+                <a href="https://wa.me/919048222999?text=Hello,%20I%20want%20to%20know%20about%20999%20Automotive%20services." target="_blank" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                </a>
+                <div class="dropdown" id="callDropdown">
+                    <button class="btn btn-outline" onclick="toggleCallDropdown(event)" style="font-family: inherit; font-size: inherit;">
+                        <i class="fas fa-phone-alt"></i> Call Now
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="tel:+919048222999"><i class="fas fa-map-marker-alt"></i> Calicut </a>
+                        <a href="tel:+917795736999"><i class="fas fa-map-marker-alt"></i> Bengaluru</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2 class="fade-in">About <span>999 Automotive</span></h2>
+        <div class="about-content fade-in">
+            <div class="about-text">
+                <p><strong>999 Automotive</strong> is a professional auto detailing studio based in Calicut and Bengaluru, specializing in premium car care services. From ceramic coating to alloy wheel upgrades and body kits, we help transform and protect your vehicle with expert craftsmanship.</p>
+                <div class="founder-info">
+                    <p>Founder: <strong>Sabith Kallingal</strong></p>
+                    <p>Instagram: <a href="https://instagram.com/sabithkallingal_" target="_blank">@sabithkallingal_</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container">
+        <h2 class="fade-in">Our <span>Services</span></h2>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <i class="fas fa-car-side service-icon"></i>
+                <h3>Auto Detailing</h3>
+                <p>Complete interior and exterior deep cleaning, restoring your vehicle to a perfect, showroom-ready finish.</p>
+            </div>
+            <div class="service-card fade-in" style="transition-delay: 0.1s;">
+                <i class="fas fa-shield-virus service-icon"></i>
+                <h3>Ceramic Coating</h3>
+                <p>Advanced nano-ceramic paint protection delivering a long-lasting mirror gloss and high scratch resistance.</p>
+            </div>
+            <div class="service-card fade-in" style="transition-delay: 0.2s;">
+                <i class="fas fa-fill-drip service-icon"></i>
+                <h3>Car Wrapping</h3>
+                <p>Premium vinyl wrapping materials in gloss, matte, or custom finishes to completely transform your ride.</p>
+            </div>
+            <div class="service-card fade-in" style="transition-delay: 0.3s;">
+                <i class="fas fa-dharmachakra service-icon"></i>
+                <h3>Alloy Wheels</h3>
+                <p>Stand out from the crowd with top-tier aftermarket alloy wheels selected for both style and durability.</p>
+            </div>
+            <div class="service-card fade-in" style="transition-delay: 0.4s;">
+                <i class="fas fa-tools service-icon"></i>
+                <h3>Body Kits</h3>
+                <p>Precision installation of custom aerodynamic body kits to grant an aggressive, sportier aesthetic.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Reels Section -->
+    <section id="instagram" class="container instagram-section" style="text-align: center;">
+        <h2 class="fade-in">Latest from <span>Instagram</span></h2>
+        <div class="reel-container">
+            <!-- Reel Placeholder 1 -->
+            <div class="reel-wrapper fade-in">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DF7YbSATkV8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:undefinedpx;height:undefinedpx;max-height:100%; width:undefinedpx;"><div style="padding:16px;"> <a id="main_link" href="p/DF7YbSATkV8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/DF7YbSATkV8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Shared post</a> on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;">Time</time></p></div></blockquote>
+            </div>
+            
+            <!-- Reel Placeholder 2 -->
+            <div class="reel-wrapper fade-in" style="transition-delay: 0.2s;">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DKwSBWCT9id/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:undefinedpx;height:undefinedpx;max-height:100%; width:undefinedpx;"><div style="padding:16px;"> <a id="main_link" href="p/DKwSBWCT9id/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/DKwSBWCT9id/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Shared post</a> on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;">Time</time></p></div></blockquote>
+            </div>
+            
+            <!-- Reel Placeholder 3 -->
+            <div class="reel-wrapper fade-in" style="transition-delay: 0.4s;">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DL7KSajzrUX/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:undefinedpx;height:undefinedpx;max-height:100%; width:undefinedpx;"><div style="padding:16px;"> <a id="main_link" href="p/DL7KSajzrUX/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/DL7KSajzrUX/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Shared post</a> on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;">Time</time></p></div></blockquote>
+            </div>
+        </div>
+        <div style="margin-top: 50px;">
+            <a href="https://www.instagram.com/999_automotive/" target="_blank" class="btn btn-primary fade-in"><i class="fab fa-instagram"></i> Follow on Instagram</a>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="container">
+        <h2 class="fade-in">Visit Our <span>Workshops</span></h2>
+        
+        <!-- Calicut Location -->
+        <div class="location-container fade-in" style="margin-bottom: 40px;">
+            <div class="location-text">
+                <h3>Calicut</h3>
+                <p><strong>Address:</strong><br> Thondayad Bypass<br> Oppo Cyberpark<br> Kozhikode, Calicut<br> India 673008</p>
+            </div>
+            <div class="map-container">
+                <!-- Google Maps Embed for Cyberpark Kozhikode Area -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15651.109859590747!2d75.8115664!3d11.2618991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65b6e6f966b4b%3A0xc3b5e4063c8daae!2sCyberpark%20Kozhikode!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Bengaluru Location -->
+        <div class="location-container fade-in" style="flex-direction: row-reverse; margin-top: 40px;">
+            <div class="location-text" style="text-align: right;">
+                <h3>Bengaluru</h3>
+                <p><strong>Address:</strong><br> Bengaluru<br> Karnataka<br> India</p>
+                <!-- <div style="margin-top: 15px;">
+                    <a href="tel:+917795736999" style="color: var(--accent); text-decoration: none; font-weight: 500;"><i class="fas fa-phone"></i> +91 7795736999</a><br>
+                    <a href="https://instagram.com/999_automotive_bengaluru" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 500;"><i class="fab fa-instagram"></i> @999_automotive_bengaluru</a>
+                </div> -->
+            </div>
+            <div class="map-container">
+                <!-- Google Maps Embed for Bengaluru -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.001696423075!2d77.5945625!3d12.9715987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container" style="text-align: center;">
+        <h2 class="fade-in">Contact <span>Us</span></h2>
+        
+        <div class="contact-grid">
+            <!-- Calicut -->
+            <div class="contact-card fade-in">
+                <h3>Calicut</h3>
+                
+                <div class="contact-item-struct">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Thondayad Bypass, Oppo Cyberpark<br>Kozhikode, Kerala 673008</p>
+                </div>
+                
+                <div class="contact-item-struct">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <a href="tel:+919048222999">+91 90482 22999</a>
+                        <a href="tel:+919846887999">+91 9846887999</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item-struct">
+                    <i class="fab fa-instagram"></i>
+                    <div>
+                        <a href="https://www.instagram.com/999_automotive/" target="_blank">999_automotive</a>
+                    </div>
+                </div>
+                
+                <a href="tel:+919048222999" class="btn btn-primary btn-contact"><i class="fas fa-phone-alt"></i> Call Calicut</a>
+            </div>
+
+            <!-- Bengaluru Branch -->
+            <div class="contact-card fade-in" style="transition-delay: 0.2s;">
+                <h3>Bengaluru</h3>
+                
+                <div class="contact-item-struct">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Bengaluru City<br>Karnataka, India</p>
+                </div>
+                
+                <div class="contact-item-struct">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <a href="tel:+917795736999">+91 7795736999</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item-struct">
+                    <i class="fab fa-instagram"></i>
+                    <div>
+                        <a href="https://instagram.com/999_automotive_bengaluru" target="_blank">@999_automotive_bengaluru</a>
+                    </div>
+                </div>
+                
+                <a href="tel:+917795736999" class="btn btn-primary btn-contact"><i class="fas fa-phone-alt"></i> Call Bengaluru</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="#home" class="logo">999<span>AUTOMOTIVE</span></a>
+        <p>Auto Detailing Services – Calicut & Bengaluru</p>
+        <!-- <div class="social-links">
+            <a href="https://instagram.com/sabithkallingal_" target="_blank" title="Calicut"><i class="fab fa-instagram"></i></a>
+            <a href="https://instagram.com/999_automotive_bengaluru" target="_blank" title="Bengaluru Branch"><i class="fab fa-instagram"></i></a>
+        </div> -->
+        <p style="font-size: 0.85rem; color: #666;">&copy; 2026 999Automotive. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919048222999?text=Hello,%20I%20want%20to%20know%20about%20999%20Automotive%20services." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Page Loader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 500); // 500ms delay for smooth transition
+        });
+
+        // Call Dropdown Toggle
+        function toggleCallDropdown(event) {
+            event.preventDefault();
+            document.getElementById('callDropdown').classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('callDropdown');
+            if (dropdown && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // Solidify navbar on scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when a nav link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Intersection Observer for Scroll Animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Optional: only animate once
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+
+    <!-- Instagram Embed Script (Needed for real instagram embeds) -->
+    <script async src="embed.js"></script>
+</body>
+</html>
